@@ -27,7 +27,6 @@ public class Pesanan {
         System.out.println("ID Pesanan : " + idPesanan);
         System.out.println("Pelanggan  : " + pelanggan.nama);
         System.out.println("Username   : " + pelanggan.username);
-        System.out.println("Joki       : " + joki.namaJoki);
         System.out.println("Rank Awal  : " + joki.rank);
         System.out.println("Rank Tujuan: " + rankTujuan);
         System.out.println("Harga      : Rp" + joki.harga);

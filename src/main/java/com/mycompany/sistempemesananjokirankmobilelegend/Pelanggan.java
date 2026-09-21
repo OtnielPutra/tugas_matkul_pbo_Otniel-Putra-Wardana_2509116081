@@ -8,20 +8,18 @@ package com.mycompany.sistempemesananjokirankmobilelegend;
  *
  * @author Otniel
  */
-public class Pelanggan {
-    String nama;
+public class Pelanggan extends User {
     String username;
-    String noHp;
 
-    public Pelanggan(String nama, String username, String noHp) {
-        this.nama = nama;
+    public Pelanggan(String nama, String noHp, String username) {
+        super(nama, noHp);
         this.username = username;
-        this.noHp = noHp;
     }
 
-    public void tampilkanPelanggan() {
+    @Override
+    public void tampilkanData() {
         System.out.println("Nama     : " + nama);
+        System.out.println("No HP    : " + noHp);
         System.out.println("Username : " + username);
-        System.out.println("No. HP   : " + noHp);
     }
 }

@@ -8,19 +8,20 @@ package com.mycompany.sistempemesananjokirankmobilelegend;
  *
  * @author Otniel
  */
-public class Joki {
-    String namaJoki;
+public class Joki extends User {
     String rank;
     double harga;
 
-    public Joki(String namaJoki, String rank, double harga) {
-        this.namaJoki = namaJoki;
+    public Joki(String nama, String noHp, String rank, double harga) {
+        super(nama, noHp);
         this.rank = rank;
         this.harga = harga;
     }
 
-    public void tampilkanJoki() {
-        System.out.println("Nama Joki : " + namaJoki);
+    @Override
+    public void tampilkanData() {
+        System.out.println("Nama Joki : " + nama);
+        System.out.println("No HP     : " + noHp);
         System.out.println("Rank      : " + rank);
         System.out.println("Harga     : Rp" + harga);
     }

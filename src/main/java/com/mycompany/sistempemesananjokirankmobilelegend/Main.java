@@ -11,6 +11,9 @@ package com.mycompany.sistempemesananjokirankmobilelegend;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -46,6 +49,9 @@ public class Main {
                 System.out.print("Nama Joki: ");
                 String namaJoki = input.nextLine();
 
+                System.out.print("No. HP Joki: ");
+                String noHpJoki = input.nextLine();
+
                 System.out.print("Rank Saat Ini: ");
                 String rank = input.nextLine();
 
@@ -56,9 +62,17 @@ public class Main {
                 double harga = input.nextDouble();
                 input.nextLine();
 
-                Pelanggan pelanggan = new Pelanggan(nama, username, noHp);
-                Joki joki = new Joki(namaJoki, rank, harga);
-                Pesanan pesanan = new Pesanan(id, pelanggan, joki, rankTujuan);
+                Pelanggan pelanggan = new Pelanggan(
+                    nama, noHp, username
+                );
+
+                Joki joki = new Joki(
+                    namaJoki, noHpJoki, rank, harga
+                );
+
+                Pesanan pesanan = new Pesanan(
+                    id, pelanggan, joki, rankTujuan
+                );
 
                 daftarPesanan.add(pesanan);
 
@@ -69,13 +83,14 @@ public class Main {
                     System.out.println("Belum ada pesanan.");
                 } else {
                     System.out.println("\n===== DAFTAR PESANAN =====");
+
                     for (Pesanan p : daftarPesanan) {
                         p.tampilkanPesanan();
                     }
                 }
 
             } else if (pilihan == 3) {
-                System.out.print("Masukkan ID Pesanan yang ingin diubah: ");
+                System.out.print("Masukkan ID Pesanan: ");
                 int id = input.nextInt();
                 input.nextLine();
 
@@ -83,11 +98,11 @@ public class Main {
 
                 for (Pesanan p : daftarPesanan) {
                     if (p.idPesanan == id) {
-                        System.out.print("Masukkan status baru: ");
-                        p.status = input.nextLine();
-
-                        System.out.print("Masukkan rank tujuan baru: ");
+                        System.out.print("Rank Tujuan Baru: ");
                         p.rankTujuan = input.nextLine();
+
+                        System.out.print("Status Baru: ");
+                        p.status = input.nextLine();
 
                         System.out.println("Pesanan berhasil diupdate!");
                         ditemukan = true;
@@ -100,7 +115,7 @@ public class Main {
                 }
 
             } else if (pilihan == 4) {
-                System.out.print("Masukkan ID Pesanan yang ingin dihapus: ");
+                System.out.print("Masukkan ID Pesanan: ");
                 int id = input.nextInt();
 
                 boolean ditemukan = false;
